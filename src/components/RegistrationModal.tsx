@@ -192,7 +192,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 Register Interest
               </h2>
               <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                Frontend demonstration flow for the DSA Tech Team assignment. Client-side validation is enforced in real time without external network transmission.
+                Frontend demonstration flow for the DSA Tech Team assignment. Validation runs in this browser; form details are not submitted to a registration server.
               </p>
             </div>
 
