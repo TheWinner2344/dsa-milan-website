@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { Sparkles, MapPin, Shield, Code, ArrowUp } from 'lucide-react';
+import { MapPin, Code, ArrowUp } from 'lucide-react';
 
 interface FooterProps {
   onOpenRegister: () => void;
@@ -16,60 +16,60 @@ export const Footer: React.FC<FooterProps> = ({ onOpenRegister }) => {
   };
 
   return (
-    <footer className="relative bg-[#05060A] border-t border-white/10 text-slate-400 text-xs sm:text-sm overflow-hidden">
-      {/* Subtle background ambient line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-rose-500/30 to-transparent" />
+    <footer className="relative bg-[#050609] border-t border-white/10 text-slate-400 text-xs sm:text-sm overflow-hidden">
+      {/* Subtle antique gold border glow */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] ornament-line-gold opacity-40" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/10">
           {/* Brand & Institution Info */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <span className="font-sculptural text-2xl font-black tracking-wider text-white">
+              <span className="font-editorial text-2xl font-normal tracking-wide text-white">
                 MILAN
               </span>
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-rose-400 font-sans border-l border-white/20 pl-3">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#D4AF37] border-l border-white/20 pl-3">
                 SRMIST 2027
               </span>
             </div>
 
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md">
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md">
               National-level cultural festival hosted by SRM Institute of Science and Technology,
-              Kattankulathur, Chennai. A convergence of dance, music, drama, fashion, and creative technology.
+              Kattankulathur, Chennai. Scheduled for <strong className="text-slate-200">February 18 – 21, 2027</strong>.
             </p>
 
-            <div className="flex items-start gap-2.5 text-xs text-slate-400 pt-2">
-              <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" aria-hidden="true" />
+            <div className="flex items-start gap-2.5 text-xs text-slate-400 pt-1">
+              <MapPin className="w-3.5 h-3.5 text-[#E24A34] shrink-0 mt-0.5" aria-hidden="true" />
               <span>
                 SRM Nagar, Kattankulathur, Chengalpattu District, Tamil Nadu 603203, India
               </span>
             </div>
           </div>
 
-          {/* Quick Section Links */}
+          {/* Quick Section Links (Consistent with Page Order) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-widest text-white">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#D4AF37]">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#home" className="hover:text-rose-400 transition-colors">
-                  Home & Wordmark Hero
+                <a href="#home" className="hover:text-white transition-colors">
+                  Home & Live Countdown
                 </a>
               </li>
               <li>
-                <a href="#events" className="hover:text-rose-400 transition-colors">
-                  Explore Festival Events
+                <a href="#about" className="hover:text-white transition-colors">
+                  About MILAN & Ethos
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-rose-400 transition-colors">
-                  About the Confluence
+                <a href="#events" className="hover:text-white transition-colors">
+                  Competitive Arenas
                 </a>
               </li>
               <li>
-                <a href="#campus" className="hover:text-rose-400 transition-colors">
-                  Venues & Campus Stages
+                <a href="#campus" className="hover:text-white transition-colors">
+                  Campus & Venue Stages
                 </a>
               </li>
             </ul>
@@ -77,17 +77,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenRegister }) => {
 
           {/* DSA Tech Team & Engineering Notes */}
           <div className="lg:col-span-4 space-y-3">
-            <div className="flex items-center gap-2 text-white text-xs font-semibold uppercase tracking-widest">
-              <Code className="w-4 h-4 text-cyan-400" aria-hidden="true" />
+            <div className="flex items-center gap-2 text-white text-xs font-mono tracking-widest uppercase">
+              <Code className="w-3.5 h-3.5 text-[#D4AF37]" aria-hidden="true" />
               <span>DSA Tech Team Assignment</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              This application was engineered for the DSA Tech Team three-hour technical interview evaluation. Built with React 19, TypeScript, and Tailwind CSS following strict frontend design standards and zero-pill discipline.
+              Crafted for the Directorate of Student Affairs (DSA) technical evaluation at SRMIST Kattankulathur. Engineered with React 19, TypeScript, Tailwind CSS, Motion, and zero-pill typographic discipline.
             </p>
 
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-400 leading-normal">
-              <span className="text-rose-400 font-semibold block mb-0.5">Evaluation Track Note:</span>
-              Demonstration build with client-side state handling. No mock external analytics or untrusted third-party trackers.
+            <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-400 leading-normal font-mono">
+              <span className="text-[#D4AF37] block mb-0.5 font-bold">FRONTEND DEMO TRACK:</span>
+              Interactive client-side evaluation build with real input validation and zero external data tracking.
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenRegister }) => {
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-slate-400 hover:text-white hover:bg-white/5 transition-colors focus-ring-gold cursor-pointer"
             aria-label="Back to top of page"
           >
             <span>Back to top</span>

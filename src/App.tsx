@@ -9,6 +9,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
 import { EventExplorer } from './components/EventExplorer';
+import { CampusSection } from './components/CampusSection';
 import { EventDetailsModal } from './components/EventDetailsModal';
 import { RegistrationModal } from './components/RegistrationModal';
 import { Footer } from './components/Footer';
@@ -49,32 +50,40 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06070B] text-slate-100 flex flex-col font-sans selection:bg-rose-500/30 selection:text-white">
+    <div className="min-h-screen bg-[#07080B] text-slate-100 flex flex-col font-sans selection:bg-[#E24A34]/30 selection:text-white">
       {/* Floating 3-Zone Navigation */}
       <Navbar
         onOpenRegister={() => handleOpenRegister()}
         onNavigateToEvents={handleExploreEvents}
       />
 
-      {/* Main Content Landmarks */}
+      {/* Main Content Landmarks in strictly consistent section order:
+          1. Home
+          2. About MILAN
+          3. Events
+          4. Venue & Campus
+      */}
       <main className="flex-1">
-        {/* Signature Sculptural MILAN Hero */}
+        {/* 1. Home: Signature Monumental Classical MILAN Hero & Live Countdown */}
         <Hero
           onExploreEvents={handleExploreEvents}
           onOpenRegister={() => handleOpenRegister()}
         />
 
-        {/* About Festival Section */}
+        {/* 2. About MILAN & Curatorial Ethos */}
         <AboutSection />
 
-        {/* Functional Events Explorer */}
+        {/* 3. Competitive Events Explorer & Floating Search */}
         <EventExplorer
           onSelectEvent={handleSelectEvent}
           onRegisterEvent={(event) => handleOpenRegister(event)}
         />
+
+        {/* 4. Campus Venues & Production Stages */}
+        <CampusSection />
       </main>
 
-      {/* Refined Institutional Footer */}
+      {/* Institutional Footer */}
       <Footer onOpenRegister={() => handleOpenRegister()} />
 
       {/* Accessible Modals */}

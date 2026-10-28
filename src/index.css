@@ -2,62 +2,115 @@
 
 @layer base {
   :root {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --color-ink: #07080B;
+    --color-charcoal: #0E1017;
+    --color-surface: #141722;
+    --color-ivory: #F7F4EB;
+    --color-ivory-dim: #D5CEBE;
+    --color-gold: #D4AF37;
+    --color-gold-light: #F3E5AB;
+    --color-gold-muted: #9E8338;
+    --color-vermilion: #E24A34;
+    --color-border-subtle: rgba(247, 244, 235, 0.08);
+    --color-border-gold: rgba(212, 175, 55, 0.22);
+
+    --font-editorial: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+    --font-serif-display: 'DM Serif Display', Georgia, serif;
+    --font-garamond: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+    --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-standard: 250ms;
+
+    font-family: var(--font-body);
     color-scheme: dark;
   }
 
   body {
-    background-color: #06070B;
-    color: #F8FAFC;
+    background-color: var(--color-ink);
+    color: var(--color-ivory);
     overflow-x: hidden;
   }
 }
 
-.font-display-serif {
-  font-family: 'Playfair Display', Georgia, serif;
+/* Typographic utility classes */
+.font-editorial {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
 }
 
-.font-sculptural {
-  font-family: 'Cinzel', 'Playfair Display', serif;
+.font-serif-display {
+  font-family: 'DM Serif Display', 'Bodoni Moda', Georgia, serif;
+}
+
+.font-garamond {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 .font-sans-body {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
-/* Multicolour radiant festival gradient for the giant sculptural MILAN letters */
-.text-milan-gradient {
-  background: linear-gradient(125deg, #FF5E62 0%, #FF9966 18%, #F43F5E 36%, #A855F7 56%, #3B82F6 78%, #06B6D4 100%);
+/* Classical MILAN Wordmark Gradient matching reference design */
+.text-milan-monumental {
+  background: linear-gradient(125deg, #FF684D 0%, #FFB042 16%, #ED2D7C 38%, #7928CA 62%, #3870E0 82%, #00D5FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-milan-outline {
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.18);
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 55%, #AA8022 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-ivory-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E6E1D3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hairline outline for edge crispness */
+.text-milan-stroke {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
   color: transparent;
 }
 
-/* Ambient glow utility */
-.ambient-glow {
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.08) 40%, rgba(6, 7, 11, 0) 70%);
+/* Restrained Floating Search Ambient Glow */
+.search-floating-glow {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 24px rgba(226, 74, 52, 0.12), 0 0 40px rgba(212, 175, 55, 0.06);
 }
 
-.ambient-glow-coral {
-  background: radial-gradient(circle, rgba(255, 94, 98, 0.18) 0%, rgba(244, 63, 94, 0.08) 40%, rgba(6, 7, 11, 0) 70%);
+.search-floating-glow:focus-within {
+  box-shadow: 0 4px 35px rgba(0, 0, 0, 0.7), 0 0 28px rgba(226, 74, 52, 0.22), 0 0 55px rgba(212, 175, 55, 0.12);
 }
 
-/* Custom scrollbar for modal/lists */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Indian cultural ornamental border line motifs */
+.ornament-line-gold {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
 }
-::-webkit-scrollbar-track {
-  background: #0B0E17;
+
+.ornament-line-vermilion {
+  background: linear-gradient(90deg, transparent, rgba(226, 74, 52, 0.45), transparent);
 }
-::-webkit-scrollbar-thumb {
-  background: #272C3D;
-  border-radius: 9999px;
+
+/* Subtle archival texture grid */
+.bg-cultural-grid {
+  background-image: radial-gradient(rgba(247, 244, 235, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #3B4259;
+
+/* Accessible focus ring */
+.focus-ring-gold:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #07080B, 0 0 0 4px #D4AF37;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

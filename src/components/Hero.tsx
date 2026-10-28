@@ -4,7 +4,9 @@
  */
 
 import React from 'react';
-import { Compass, Sparkles, ArrowDown, Calendar, MapPin, Trophy } from 'lucide-react';
+import { ArrowRight, Compass, MapPin, Calendar, Sparkles } from 'lucide-react';
+import { Countdown } from './Countdown';
+import { motion } from 'motion/react';
 
 interface HeroProps {
   onExploreEvents: () => void;
@@ -15,174 +17,200 @@ export const Hero: React.FC<HeroProps> = ({ onExploreEvents, onOpenRegister }) =
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden pt-28 pb-12 sm:pb-16 select-none bg-[#06070B]"
-      aria-label="MILAN Festival Introduction"
+      className="relative min-h-[95vh] w-full flex flex-col justify-between overflow-hidden pt-28 sm:pt-32 pb-12 sm:pb-16 bg-[#07080B]"
+      aria-label="MILAN Festival Introduction & Countdown"
     >
-      {/* 1. Ambient atmospheric glow meshes */}
-      <div
-        className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full ambient-glow-coral blur-3xl opacity-60"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute top-1/3 -right-40 w-[700px] h-[700px] rounded-full ambient-glow blur-3xl opacity-70"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/3 w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-3xl opacity-50"
-        aria-hidden="true"
-      />
-
-      {/* 2. Abstract Geometric Vector Elements & Kinetic Orbits Layer */}
+      {/* 1. Atmospheric Ambient Lighting & Fine Architectural Grid */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-        {/* Subtle architectural grid lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
+        {/* Soft sunset warmth behind left typography */}
+        <div className="absolute top-1/4 -left-32 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-[#E24A34]/15 via-[#ED2D7C]/10 to-transparent blur-3xl opacity-70" />
+        
+        {/* Luminous violet & cyan warmth behind right letterforms */}
+        <div className="absolute top-1/3 -right-32 w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-[#00D5FF]/10 via-[#7928CA]/15 to-transparent blur-3xl opacity-60" />
 
-        {/* Luminous dynamic celestial rings */}
+        {/* Delicate cultural textile / archival pattern grid */}
+        <div className="absolute inset-0 bg-cultural-grid opacity-30 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
+
+        {/* Fine ornamental architectural guidelines */}
+        <div className="absolute top-24 left-0 right-0 h-[1px] ornament-line-gold opacity-30" />
+        <div className="absolute bottom-16 left-0 right-0 h-[1px] ornament-line-gold opacity-20" />
+      </div>
+
+      {/* 2. THE SIGNATURE MILAN MONUMENTAL WORDMARK LAYER */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-16 sm:top-20 z-10 flex items-center justify-center overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="relative w-full flex flex-col items-center justify-center">
+          {/* Subtle reflection & ambient depth glow */}
+          <span className="font-editorial text-[20vw] sm:text-[21vw] font-normal tracking-[-0.03em] text-milan-monumental opacity-15 blur-3xl select-none leading-none">
+            MILAN
+          </span>
+
+          {/* Primary monumental classical letters spanning edge to edge */}
+          <span className="absolute top-0 font-editorial text-[20vw] sm:text-[21vw] font-normal tracking-[-0.03em] text-milan-monumental select-none leading-none drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] opacity-95">
+            MILAN
+          </span>
+
+          {/* Precision hairline edge highlight */}
+          <span className="absolute top-0 font-editorial text-[20vw] sm:text-[21vw] font-normal tracking-[-0.03em] text-milan-stroke opacity-30 select-none leading-none">
+            MILAN
+          </span>
+        </div>
+      </div>
+
+      {/* 3. 3D Ribbon / Kinetic Sculptural Accent (interweaving behind/foreground like the reference image) */}
+      <div
+        className="pointer-events-none absolute right-4 sm:right-16 lg:right-32 bottom-20 sm:bottom-28 z-15 w-[320px] sm:w-[480px] lg:w-[620px] h-[340px] sm:h-[480px] opacity-75 sm:opacity-90 mix-blend-screen overflow-hidden"
+        aria-hidden="true"
+      >
         <svg
-          className="absolute -top-12 left-1/2 -translate-x-1/2 w-[980px] h-[980px] opacity-25"
-          viewBox="0 0 1000 1000"
+          viewBox="0 0 600 600"
           fill="none"
+          className="w-full h-full transform scale-110 translate-y-12"
         >
-          <circle
-            cx="500"
-            cy="500"
-            r="440"
-            stroke="url(#ring-grad-1)"
-            strokeWidth="1.5"
-            strokeDasharray="8 12"
+          <path
+            d="M 150 480 C 220 300, 340 180, 480 220 C 580 250, 480 420, 360 480 C 240 540, 160 520, 150 480 Z"
+            fill="url(#silk-gradient-1)"
+            opacity="0.85"
           />
-          <circle
-            cx="500"
-            cy="500"
-            r="380"
-            stroke="url(#ring-grad-2)"
-            strokeWidth="1"
-            strokeDasharray="2 10"
+          <path
+            d="M 220 520 C 310 380, 420 280, 520 340 C 600 390, 450 560, 310 560 Z"
+            fill="url(#silk-gradient-2)"
+            opacity="0.9"
           />
-          <circle
-            cx="500"
-            cy="500"
-            r="490"
-            stroke="rgba(255,255,255,0.08)"
-            strokeWidth="0.8"
+          <path
+            d="M 120 460 C 260 360, 380 220, 420 140 C 440 90, 380 120, 320 220 C 260 320, 150 440, 120 460 Z"
+            fill="url(#silk-gradient-3)"
+            opacity="0.75"
           />
           <defs>
-            <linearGradient id="ring-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FF5E62" />
-              <stop offset="50%" stopColor="#A855F7" />
-              <stop offset="100%" stopColor="#06B6D4" />
+            <linearGradient id="silk-gradient-1" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#E24A34" />
+              <stop offset="35%" stopColor="#ED2D7C" />
+              <stop offset="70%" stopColor="#7928CA" />
+              <stop offset="100%" stopColor="#00D5FF" />
             </linearGradient>
-            <linearGradient id="ring-grad-2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#3B82F6" />
-              <stop offset="100%" stopColor="#F43F5E" />
+            <linearGradient id="silk-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FF8A00" />
+              <stop offset="50%" stopColor="#E52E71" />
+              <stop offset="100%" stopColor="#3870E0" />
+            </linearGradient>
+            <linearGradient id="silk-gradient-3" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#00F0FF" />
+              <stop offset="40%" stopColor="#7928CA" />
+              <stop offset="100%" stopColor="#E24A34" />
             </linearGradient>
           </defs>
         </svg>
       </div>
 
-      {/* 3. SIGNATURE MILAN TYPOGRAPHIC SCULPTURE LAYER (Occupies hero viewport behind foreground interface) */}
-      <div
-        className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="relative w-full flex flex-col items-center justify-center">
-          {/* Subtle reflection halo */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-sculptural text-[22vw] sm:text-[23vw] lg:text-[24vw] font-black tracking-[-0.04em] text-milan-gradient opacity-20 blur-2xl transform scale-105">
-              MILAN
-            </span>
-          </div>
-
-          {/* Primary sculpted letters extending edge-to-edge */}
-          <span className="font-sculptural text-[21vw] sm:text-[22vw] lg:text-[23.5vw] font-black tracking-[-0.04em] text-milan-gradient drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] opacity-95 transition-transform duration-700">
-            MILAN
-          </span>
-
-          {/* Precision hairline outline overlay for sculptural edge definition */}
-          <span className="absolute font-sculptural text-[21vw] sm:text-[22vw] lg:text-[23.5vw] font-black tracking-[-0.04em] text-milan-outline opacity-40">
-            MILAN
-          </span>
-        </div>
-      </div>
-
-      {/* 4. FOREGROUND INTERACTION LAYER (Floating cleanly above the sculptural typography) */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto flex flex-col justify-center">
-        {/* Top Kicker: Institution & Category Context */}
-        <div className="flex flex-col items-start gap-4 mb-6">
-          <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-rose-500" aria-hidden="true" />
-            <span className="text-xs uppercase tracking-widest text-slate-300 font-medium">
-              SRM Institute of Science & Technology · Kattankulathur
-            </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] max-w-3xl [text-wrap:balance]">
-            Where Culture Transcends.
-            <span className="block font-display-serif italic font-normal text-3xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-purple-300 to-cyan-300 mt-1">
-              The Confluence of Rhythm & Art.
-            </span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mt-2 [text-wrap:pretty]">
-            MILAN is the premier national-level cultural festival hosted by SRMIST Kattankulathur.
-            A multi-disciplinary celebration bringing together thousands of artists, performers,
-            thespians, and creative technologists across India.
-          </p>
-        </div>
-
-        {/* Action Controls & Fast Metadata Bar */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 mt-4">
-          <button
-            type="button"
-            onClick={onExploreEvents}
-            className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-rose-600 via-purple-600 to-indigo-600 hover:from-rose-500 hover:via-purple-500 hover:to-indigo-500 shadow-xl shadow-rose-950/40 hover:shadow-rose-600/30 transition-all duration-200 active:scale-[0.98] whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#06070B]"
+      {/* 4. FOREGROUND EDITORIAL CONTENT LAYER */}
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto pt-16 sm:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          {/* Left Column: Title, Campaign Narrative & Actions */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col items-start gap-5"
           >
-            <Compass className="w-4 h-4 text-rose-200" aria-hidden="true" />
-            <span>Explore 10 Events</span>
-          </button>
+            {/* SRMIST Kicker */}
+            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] uppercase text-[#D4AF37]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E24A34]" aria-hidden="true" />
+              <span>SRMIST KATTANKULATHUR</span>
+            </div>
 
-          <button
-            type="button"
-            onClick={onOpenRegister}
-            className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-sm font-semibold text-slate-200 bg-white/10 hover:bg-white/15 border border-white/15 hover:border-white/25 backdrop-blur-md transition-all duration-200 active:scale-[0.98] whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300"
+            {/* Campaign Headline matching reference aesthetic */}
+            <h1 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight leading-[1.06] [text-wrap:balance]">
+              A Festival <br />
+              <span className="font-editorial italic font-normal text-ivory-gradient">
+                Beyond Boundaries
+              </span>
+            </h1>
+
+            {/* Supporting Prose */}
+            <p className="text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed [text-wrap:pretty]">
+              Milan — the national-level cultural fest by DSA, where talent meets tradition,
+              creativity finds its stage, and every moment becomes a memory.
+            </p>
+
+            {/* Action Buttons: High-Impact Editorial Styling */}
+            <div className="flex flex-wrap items-center gap-4 pt-3">
+              <button
+                type="button"
+                onClick={onExploreEvents}
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider text-black bg-[#E2F163] hover:bg-[#D5E650] shadow-lg shadow-black/40 transition-all duration-200 active:scale-[0.98] focus-ring-gold whitespace-nowrap cursor-pointer"
+              >
+                <span>Explore Events</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </button>
+
+              <button
+                type="button"
+                onClick={onOpenRegister}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-xs font-medium uppercase tracking-wider text-slate-200 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 hover:border-[#D4AF37]/50 backdrop-blur-md transition-all duration-200 active:scale-[0.98] focus-ring-gold whitespace-nowrap cursor-pointer"
+              >
+                <span>Register Interest</span>
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Giant Live Countdown & Discipline Pillar Anchor */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col justify-end lg:items-end space-y-6 pt-6 lg:pt-0"
           >
-            <span>Register Demonstration</span>
-          </button>
+            {/* Vertical Discipline Tags & Culture Connects Banner */}
+            <div className="hidden lg:flex items-start justify-end gap-6 text-right pb-2">
+              <div className="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-400 space-y-1">
+                <div>MUSIC</div>
+                <div>DANCE</div>
+                <div>DRAMA</div>
+                <div>FASHION</div>
+                <div>TECHNICAL</div>
+              </div>
+              <div className="border-l border-white/15 pl-4 text-left">
+                <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#D4AF37] block leading-tight">
+                  CULTURE<br />CONNECTS<br />US
+                </span>
+              </div>
+            </div>
+
+            {/* Giant Live Countdown Section */}
+            <div className="w-full lg:max-w-md p-6 sm:p-7 rounded-2xl bg-[#0E1017]/80 backdrop-blur-xl border border-white/10 shadow-2xl">
+              <Countdown />
+            </div>
+          </motion.div>
         </div>
 
-        {/* Clean Unboxed Metadata Strip (Zero-Pill Discipline) */}
-        <div className="mt-10 sm:mt-12 pt-6 border-t border-white/10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-400">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-rose-400 shrink-0" aria-hidden="true" />
-            <span className="text-slate-200 font-medium">March 13 – 15, 2027</span>
+        {/* Clean Unboxed Metadata Strip */}
+        <div className="mt-12 sm:mt-16 pt-5 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <div className="flex items-center gap-2">
+              <Calendar className="w-3.5 h-3.5 text-[#E24A34]" aria-hidden="true" />
+              <span className="text-slate-200 font-medium font-sans">
+                February 18 – 21, 2027
+              </span>
+            </div>
+            <span className="text-white/20 hidden sm:inline" aria-hidden="true">·</span>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" aria-hidden="true" />
+              <span>SRMIST Kattankulathur, Chennai</span>
+            </div>
+            <span className="text-white/20 hidden sm:inline" aria-hidden="true">·</span>
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" aria-hidden="true" />
+              <span>10 Flagship Arenas</span>
+            </div>
           </div>
-          <span className="text-white/20 hidden sm:inline" aria-hidden="true">·</span>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-violet-400 shrink-0" aria-hidden="true" />
-            <span>Kattankulathur Campus, Chennai</span>
-          </div>
-          <span className="text-white/20 hidden sm:inline" aria-hidden="true">·</span>
-          <div className="flex items-center gap-2">
-            <Trophy className="w-4 h-4 text-amber-400 shrink-0" aria-hidden="true" />
-            <span>5 Core Arenas · Pan-India Delegations</span>
+
+          <div className="text-[11px] font-mono text-slate-400 uppercase tracking-widest">
+            DIRECTORATE OF STUDENT AFFAIRS
           </div>
         </div>
-      </div>
-
-      {/* 5. Bottom Scroll Indication */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-end pt-8">
-        <div className="text-xs text-slate-500 font-mono tracking-wider">
-          DSA TECH TEAM · TECHNICAL ASSIGNMENT
-        </div>
-
-        <a
-          href="#events"
-          className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors"
-          aria-label="Scroll down to festival events"
-        >
-          <span>Discover Arenas</span>
-          <ArrowDown className="w-3.5 h-3.5 text-rose-400 group-hover:translate-y-0.5 transition-transform" aria-hidden="true" />
-        </a>
       </div>
     </section>
   );
