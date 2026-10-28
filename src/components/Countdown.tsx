@@ -74,11 +74,11 @@ export const Countdown: React.FC = () => {
       </div>
 
       {/* Monumental Classical Numerical Grid */}
-      <div className="flex items-baseline gap-4 sm:gap-6 lg:gap-8">
+      <div className="flex items-baseline gap-2 sm:gap-4 lg:gap-5 min-w-0">
         {/* Dominant Primary Days Anchor */}
         <div className="flex flex-col items-start">
           <div className="flex items-baseline">
-            <span className="font-editorial text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-ivory-gradient leading-none tracking-tight tabular-nums">
+            <span className="font-editorial text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-light text-ivory-gradient leading-none tracking-tight tabular-nums">
               {timeLeft.days}
             </span>
             <span className="font-editorial italic text-amber-300/80 text-xl sm:text-2xl ml-1 font-normal">
@@ -96,7 +96,7 @@ export const Countdown: React.FC = () => {
         </span>
 
         {/* Supporting Hours, Minutes, Seconds */}
-        <div className="flex items-baseline gap-3 sm:gap-5 pb-2">
+        <div className="flex items-baseline gap-2 sm:gap-4 pb-2 min-w-0">
           {/* Hours */}
           <div className="flex flex-col items-start">
             <span className="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-slate-200 tabular-nums leading-none">
