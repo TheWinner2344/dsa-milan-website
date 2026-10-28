@@ -25,7 +25,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     eventId: preselectedEvent?.id || FESTIVAL_EVENTS[0].id,
     institution: '',
     teamName: '',
-    agreeTerms: true,
+    agreeTerms: false,
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -70,23 +70,33 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       newErrors.fullName = 'Full name is required.';
     } else if (formData.fullName.trim().length < 3) {
       newErrors.fullName = 'Please enter at least 3 characters.';
+    } else if (formData.fullName.trim().length > 100) {
+      newErrors.fullName = 'Full name must be 100 characters or fewer.';
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       newErrors.email = 'Email address is required.';
+    } else if (formData.email.trim().length > 254) {
+      newErrors.email = 'Email address must be 254 characters or fewer.';
     } else if (!emailRegex.test(formData.email.trim())) {
       newErrors.email = 'Please provide a valid email format (e.g. name@domain.com).';
     }
 
-    if (!formData.eventId) {
-      newErrors.eventId = 'Please choose an event.';
+    if (!FESTIVAL_EVENTS.some((event) => event.id === formData.eventId)) {
+      newErrors.eventId = 'Please choose a valid event.';
     }
 
     if (!formData.institution.trim()) {
       newErrors.institution = 'College or University name is required.';
     } else if (formData.institution.trim().length < 2) {
       newErrors.institution = 'Institution name is too short.';
+    } else if (formData.institution.trim().length > 150) {
+      newErrors.institution = 'Institution name must be 150 characters or fewer.';
+    }
+
+    if (formData.teamName && formData.teamName.trim().length > 100) {
+      newErrors.teamName = 'Team name must be 100 characters or fewer.';
     }
 
     if (!formData.agreeTerms) {
@@ -124,7 +134,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       eventId: preselectedEvent?.id || FESTIVAL_EVENTS[0].id,
       institution: '',
       teamName: '',
-      agreeTerms: true,
+      agreeTerms: false,
     });
   };
 
@@ -198,6 +208,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 ref={initialFocusRef}
                 type="text"
                 id="reg-fullName"
+                maxLength={100}
                 value={formData.fullName}
                 onChange={(e) => {
                   setFormData({ ...formData, fullName: e.target.value });
@@ -231,6 +242,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               <input
                 type="email"
                 id="reg-email"
+                maxLength={254}
                 value={formData.email}
                 onChange={(e) => {
                   setFormData({ ...formData, email: e.target.value });
@@ -294,6 +306,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               <input
                 type="text"
                 id="reg-institution"
+                maxLength={150}
                 value={formData.institution}
                 onChange={(e) => {
                   setFormData({ ...formData, institution: e.target.value });
@@ -327,11 +340,20 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               <input
                 type="text"
                 id="reg-teamName"
+                maxLength={100}
                 value={formData.teamName}
                 onChange={(e) => setFormData({ ...formData, teamName: e.target.value })}
                 placeholder="e.g. The Acoustic Ensemble"
                 className="w-full px-4 py-2.5 rounded-xl bg-[#141722] border border-white/10 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-[#D4AF37]/60 transition-all"
+                aria-invalid={!!errors.teamName}
+                aria-describedby={errors.teamName ? "reg-teamName-error" : undefined}
               />
+              {errors.teamName && (
+                <p id="reg-teamName-error" className="flex items-center gap-1.5 text-xs text-[#E24A34] mt-1">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  <span>{errors.teamName}</span>
+                </p>
+              )}
             </div>
 
             {/* Agreement Terms */}
@@ -347,7 +369,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                   className="mt-1 rounded bg-[#141722] border-white/20 text-[#E24A34] focus:ring-[#D4AF37] focus:ring-offset-0"
                 />
                 <span className="text-xs text-slate-400 leading-relaxed">
-                  I acknowledge this is an interactive demonstration form for the DSA Tech Team review. No personal data is stored in a database or sent across external networks.
+                  I acknowledge this is an interactive demonstration form for the DSA Tech Team review. Form details stay in this browser and are not submitted to a registration server or stored in a database.
                 </span>
               </label>
               {errors.agreeTerms && (
@@ -388,7 +410,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 Interest Registered!
               </h2>
               <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-                Validation passed successfully. This simulates the festival interest submission pipeline with complete client-side error handling for the DSA Tech Team review.
+                Client-side validation passed. This simulates the festival interest flow for the DSA Tech Team review; no registration is sent to or confirmed by a server.
               </p>
             </div>
 
@@ -442,7 +464,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             <div className="flex items-start gap-2.5 p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs leading-relaxed">
               <ShieldCheck className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
               <span>
-                <strong>Demonstration Disclosure:</strong> No personal details were transmitted to an external server or saved in a remote database. This is a frontend evaluation demonstration.
+                <strong>Demonstration Disclosure:</strong> This pass token is generated locally for demonstration only. It is not a real ticket or confirmed registration; no form details are submitted to a registration server or stored in a remote database.
               </span>
             </div>
 
