@@ -74,11 +74,11 @@ export const Countdown: React.FC = () => {
       </div>
 
       {/* Monumental Classical Numerical Grid */}
-      <div className="flex items-baseline gap-2 sm:gap-4 lg:gap-5 min-w-0">
+      <div className="flex items-baseline gap-1.5 sm:gap-3 lg:gap-3 min-w-0 w-full">
         {/* Dominant Primary Days Anchor */}
         <div className="flex flex-col items-start">
           <div className="flex items-baseline">
-            <span className="font-editorial text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-light text-ivory-gradient leading-none tracking-tight tabular-nums">
+            <span className="font-editorial text-5xl sm:text-7xl md:text-8xl lg:text-7xl font-light text-ivory-gradient leading-none tracking-tight tabular-nums">
               {timeLeft.days}
             </span>
             <span className="font-editorial italic text-amber-300/80 text-xl sm:text-2xl ml-1 font-normal">
@@ -91,15 +91,15 @@ export const Countdown: React.FC = () => {
         </div>
 
         {/* Refined Classical Separator */}
-        <span className="font-editorial text-3xl sm:text-4xl text-amber-400/40 font-light select-none pb-4" aria-hidden="true">
+        <span className="font-editorial text-2xl sm:text-3xl text-amber-400/40 font-light select-none pb-4" aria-hidden="true">
           /
         </span>
 
         {/* Supporting Hours, Minutes, Seconds */}
-        <div className="flex items-baseline gap-2 sm:gap-4 pb-2 min-w-0">
+        <div className="flex items-baseline gap-1.5 sm:gap-3 pb-2 min-w-0 flex-1 justify-between">
           {/* Hours */}
           <div className="flex flex-col items-start">
-            <span className="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-slate-200 tabular-nums leading-none">
+            <span className="font-editorial text-xl sm:text-3xl md:text-4xl lg:text-4xl font-normal text-slate-200 tabular-nums leading-none">
               {formatUnit(timeLeft.hours)}
             </span>
             <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-slate-400 mt-1">
@@ -111,7 +111,7 @@ export const Countdown: React.FC = () => {
 
           {/* Minutes */}
           <div className="flex flex-col items-start">
-            <span className="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-slate-200 tabular-nums leading-none">
+            <span className="font-editorial text-xl sm:text-3xl md:text-4xl lg:text-4xl font-normal text-slate-200 tabular-nums leading-none">
               {formatUnit(timeLeft.minutes)}
             </span>
             <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-slate-400 mt-1">
@@ -123,7 +123,7 @@ export const Countdown: React.FC = () => {
 
           {/* Seconds */}
           <div className="flex flex-col items-start">
-            <span className="font-editorial text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-amber-300/90 tabular-nums leading-none">
+            <span className="font-editorial text-xl sm:text-3xl md:text-4xl lg:text-4xl font-normal text-amber-300/90 tabular-nums leading-none">
               {formatUnit(timeLeft.seconds)}
             </span>
             <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-slate-400 mt-1">
