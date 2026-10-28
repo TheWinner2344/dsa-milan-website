@@ -115,12 +115,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreEvents, onOpenRegister }) =
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col items-start gap-5"
           >
-            {/* SRMIST Kicker */}
-            <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] uppercase text-[#D4AF37]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E24A34]" aria-hidden="true" />
-              <span>SRMIST KATTANKULATHUR</span>
-            </div>
-
             {/* Campaign Headline matching reference aesthetic */}
             <h1 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight leading-[1.06] [text-wrap:balance]">
               A Festival <br />
