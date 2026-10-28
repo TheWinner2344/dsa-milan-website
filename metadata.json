@@ -1,0 +1,6 @@
+{
+  "name": "MILAN — SRMIST Cultural Festival",
+  "description": "The official digital platform for MILAN, the national-level cultural festival hosted by SRM Institute of Science and Technology, Kattankulathur, crafted by the DSA Tech Team.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
