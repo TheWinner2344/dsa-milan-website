@@ -174,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreEvents, onOpenRegister }) =
             </div>
 
             {/* Giant Live Countdown Section */}
-            <div className="w-full lg:max-w-md p-6 sm:p-7 rounded-2xl bg-[#0E1017]/80 backdrop-blur-xl border border-white/10 shadow-2xl">
+            <div className="w-full p-6 sm:p-7 rounded-2xl bg-[#0E1017]/80 backdrop-blur-xl border border-white/10 shadow-2xl">
               <Countdown />
             </div>
           </motion.div>
