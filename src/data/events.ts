@@ -4,6 +4,11 @@
  */
 
 import { FestivalEvent } from '../types';
+import danceImage from '../assets/images/milan_dance_stage_1793168263679.jpg';
+import musicImage from '../assets/images/milan_music_concert_1793168264241.jpg';
+import dramaImage from '../assets/images/milan_drama_theatre_1793168265915.jpg';
+import fashionImage from '../assets/images/milan_fashion_runway_1793168265792.jpg';
+import techImage from '../assets/images/milan_creative_tech_1793168283333.jpg';
 
 export const FESTIVAL_EVENTS: FestivalEvent[] = [
   {
@@ -16,7 +21,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 18, 2027',
     time: '17:30 – 21:00 IST',
     venue: 'Dr. T.P. Ganesan Auditorium (Main Stage)',
-    imageUrl: '/src/assets/images/milan_dance_stage_1793168263679.jpg',
+    imageUrl: danceImage,
     teamSize: '12 – 30 members',
     duration: '8 – 12 minutes',
     rules: [
@@ -37,7 +42,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 19, 2027',
     time: '18:00 – 22:30 IST',
     venue: 'SRMIST Open Air Amphitheatre',
-    imageUrl: '/src/assets/images/milan_music_concert_1793168264241.jpg',
+    imageUrl: musicImage,
     teamSize: '3 – 8 musicians',
     duration: '15 mins performance + 5 mins line check',
     rules: [
@@ -58,7 +63,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 20, 2027',
     time: '19:00 – 21:45 IST',
     venue: 'Dr. T.P. Ganesan Auditorium (Grand Hall)',
-    imageUrl: '/src/assets/images/milan_fashion_runway_1793168265792.jpg',
+    imageUrl: fashionImage,
     teamSize: '10 – 18 models & designers',
     duration: '10 – 14 minutes per house',
     rules: [
@@ -79,7 +84,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 18, 2027',
     time: '10:00 – 15:00 IST',
     venue: 'Mini Auditorium I (Kattankulathur)',
-    imageUrl: '/src/assets/images/milan_drama_theatre_1793168265915.jpg',
+    imageUrl: dramaImage,
     teamSize: '6 – 20 actors & stage crew',
     duration: '25 – 35 minutes',
     rules: [
@@ -100,7 +105,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 19, 2027',
     time: '11:00 – 17:00 IST',
     venue: 'Tech Park Multimedia Lab & Atrium',
-    imageUrl: '/src/assets/images/milan_creative_tech_1793168283333.jpg',
+    imageUrl: techImage,
     teamSize: '1 – 4 developers / artists',
     duration: '6 hours sprint + live showcase',
     rules: [
@@ -121,7 +126,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 19, 2027',
     time: '14:00 – 17:30 IST',
     venue: 'Dr. T.P. Ganesan Auditorium (Mini Hall II)',
-    imageUrl: '/src/assets/images/milan_dance_stage_1793168263679.jpg',
+    imageUrl: danceImage,
     teamSize: '1 – 2 dancers',
     duration: '7 – 10 minutes',
     rules: [
@@ -142,7 +147,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 18, 2027',
     time: '13:00 – 16:30 IST',
     venue: 'Bio-Engineering Acoustic Courtyard',
-    imageUrl: '/src/assets/images/milan_music_concert_1793168264241.jpg',
+    imageUrl: musicImage,
     teamSize: '4 – 14 vocalists & acoustic players',
     duration: '8 – 12 minutes',
     rules: [
@@ -163,7 +168,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 20, 2027',
     time: '11:00 – 14:00 IST',
     venue: 'SRMIST Clock Tower Lawn Circle',
-    imageUrl: '/src/assets/images/milan_drama_theatre_1793168265915.jpg',
+    imageUrl: dramaImage,
     teamSize: '10 – 25 performers',
     duration: '15 – 20 minutes',
     rules: [
@@ -184,7 +189,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 21, 2027',
     time: '18:30 – 20:30 IST',
     venue: 'SRMIST Indoor Sports Complex Arena',
-    imageUrl: '/src/assets/images/milan_creative_tech_1793168283333.jpg',
+    imageUrl: techImage,
     teamSize: '3 – 8 robotics engineers',
     duration: '6 – 8 minutes',
     rules: [
@@ -205,7 +210,7 @@ export const FESTIVAL_EVENTS: FestivalEvent[] = [
     date: 'February 20, 2027',
     time: '16:00 – 18:00 IST',
     venue: 'Architecture Department Amphitheatre',
-    imageUrl: '/src/assets/images/milan_fashion_runway_1793168265792.jpg',
+    imageUrl: fashionImage,
     teamSize: '2 – 6 designers & models',
     duration: '5 – 8 minutes',
     rules: [
